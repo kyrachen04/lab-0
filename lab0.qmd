@@ -1,6 +1,6 @@
 ---
 title: "Lab 0 - Hello R!"
-author: "[INSERT NAME]"
+author: "Kyra Chen"
 date: "[INSERT DATE]"
 format: pdf
 editor: visual
@@ -63,10 +63,8 @@ Conclude with some more narrative, if needed.
 
 ## Exercise 4
 
-(Add a labeled code chunk and narrative here. Insert code chunks using the "insert chunk" button (a green C with a +).
-Alternatively, use CMD + OPTION + I (Mac) or CTRL + ALT + I (Windows).)
+(Add a labeled code chunk and narrative here. Insert code chunks using the "insert chunk" button (a green C with a +). Alternatively, use CMD + OPTION + I (Mac) or CTRL + ALT + I (Windows).)
 
 ## Exercise 5
 
-(Add a labeled code chunk and narrative here. Insert code chunks using the "insert chunk" button (a green C with a +).
-Alternatively, use CMD + OPTION + I (Mac) or CTRL + ALT + I (Windows).)
+(Add a labeled code chunk and narrative here. Insert code chunks using the "insert chunk" button (a green C with a +). Alternatively, use CMD + OPTION + I (Mac) or CTRL + ALT + I (Windows).)
