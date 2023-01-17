@@ -28,8 +28,11 @@ The datasaurus_dozen file has 1846 rows and 3 columns. The three variables are d
 
 ## Exercise 2
 
-```{r}
+```{r, fig.height= 5, fig.width= 5}
 #| label: plot-dino
+#| fig-height: 5
+#| fig-width: 5
+
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "dino")
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) + 
@@ -44,8 +47,11 @@ dino_data %>%
 
 ## Exercise 3
 
-```{r}
+```{r, fig.height= 5, fig.width= 5}
 #| label: plot-circle
+#| fig-height: 5
+#| fig-width: 5
+
 circle_data <- datasaurus_dozen %>%
   filter(dataset == "circle")
 ggplot(data = circle_data, mapping = aes(x = x, y = y)) + 
@@ -62,8 +68,45 @@ The r value for the circle is slightly greater than that of the dino, although b
 
 ## Exercise 4
 
-(Add a labeled code chunk and narrative here. Insert code chunks using the "insert chunk" button (a green C with a +). Alternatively, use CMD + OPTION + I (Mac) or CTRL + ALT + I (Windows).)
+```{r, fig.height= 5, fig.width= 5}
+#| label: plot-star
+#| fig-height: 5
+#| fig-width: 5
+
+star_data <- datasaurus_dozen %>%
+  filter(dataset == "star")
+ggplot(data = star_data, mapping = aes(x = x, y = y)) + 
+  geom_point()
+```
+
+```{r}
+#| label: cor-star
+star_data %>%
+  summarize(r = cor(x, y))
+```
+
+Once again the r value is extremely small. Like dino, the r value is \~ -0.06.
 
 ## Exercise 5
 
-(Add a labeled code chunk and narrative here. Insert code chunks using the "insert chunk" button (a green C with a +). Alternatively, use CMD + OPTION + I (Mac) or CTRL + ALT + I (Windows).)
+```{r, fig.height= 10, fig.width= 6}
+#| label: plot_all
+#| fig-height: 10
+#| fig-width: 6
+
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
+  geom_point()+
+  facet_wrap(~ dataset, ncol = 3) +
+  theme(legend.position = "none")
+```
+
+The plots all have images created through data points that seem fairly random. They don't appear to have much of a correlation.
+
+```{r}
+#| label: cor-all
+datasaurus_dozen |>
+  group_by(dataset) |>
+  summarize(r = cor(x, y)) 
+```
+
+The r values are all around -0.06, which is extremely small and supports my observation above that there's almost zero correlation in any of the plots.
