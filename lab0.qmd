@@ -15,6 +15,13 @@ library(tidyverse)
 library(datasauRus)
 ```
 
+Checking files
+
+```{r}
+datasaurus_dozen |>
+  distinct(dataset)
+```
+
 ## Exercise 1
 
 The datasaurus_dozen file has 1846 rows and 3 columns. The three variables are dataset, x, and y.
@@ -37,23 +44,21 @@ dino_data %>%
 
 ## Exercise 3
 
-(Add code and narrative here as needed. Note the code chunks below are labeled with `plot-circle` and `cor-circle` to provide spaces to place the code for plotting and calculating the correlation coefficient.)
-
-(When you have finished, delete these instructions.)
-
 ```{r}
 #| label: plot-circle
-# Your code should go here! This is a comment, which should be deleted.
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) + 
+  geom_point()
 ```
-
-Some more narrative can go here.
 
 ```{r}
 #| label: cor-circle
-# Calculate the correlation here
+circle_data %>%
+  summarize(r = cor(x, y))
 ```
 
-Conclude with some more narrative, if needed.
+The r value for the circle is slightly greater than that of the dino, although both values are extremely low.
 
 ## Exercise 4
 
